@@ -2,6 +2,7 @@ package com.redis.logging;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.IOException;
 
 public class Logger {
 
@@ -12,13 +13,14 @@ public class Logger {
     }
 
     public void log(String message) {
-        FileWriter writer = null;
+        System.out.println(message);
+        FileWriter writer;
         try {
-            writer = new FileWriter(this.logDir);
+            writer = new FileWriter(this.logDir, true);
             BufferedWriter buffer = new BufferedWriter(writer);
             buffer.write(message);
-            writer.close();
-        } catch (Throwable e) {
+            buffer.close();
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

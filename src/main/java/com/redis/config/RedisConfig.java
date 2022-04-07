@@ -14,7 +14,8 @@ import org.springframework.context.annotation.Configuration;
         return new RedisService(redisHost, redisPort, logger);
     }
 
-    @Bean Logger logger(@Value("log.dir") String logDir) {
+    @Bean Logger logger(@Value("${log.dir}") String logDir) {
+        System.out.println("logDir: " + logDir);
         return new Logger(logDir);
     }
 }

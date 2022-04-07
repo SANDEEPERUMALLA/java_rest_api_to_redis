@@ -3,7 +3,6 @@ package com.redis.services;
 import com.redis.logging.Logger;
 import redis.clients.jedis.Jedis;
 
-
 public class RedisService {
 
     private Jedis jedis;
@@ -20,8 +19,8 @@ public class RedisService {
     }
 
     public String get(String cacheKey) {
-         logger.log("Get Call with Cache Key: " + cacheKey);
-         return jedis.get(cacheKey);
+        logger.log("Get Call with Cache Key: " + cacheKey);
+        return jedis.get(cacheKey);
     }
 
     public String put(String cacheKey, String cacheValue) {
