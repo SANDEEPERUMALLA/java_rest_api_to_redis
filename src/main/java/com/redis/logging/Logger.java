@@ -19,6 +19,7 @@ public class Logger {
             writer = new FileWriter(this.logDir, true);
             BufferedWriter buffer = new BufferedWriter(writer);
             buffer.write(message);
+            buffer.write("\n");
             buffer.close();
         } catch (Exception e) {
             e.printStackTrace();
