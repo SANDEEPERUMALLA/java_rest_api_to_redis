@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-api-deployment
+  labels:
+    app: redis_api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis_api
+  template:
+    metadata:
+      labels:
+        app: redis_api
+    spec:
+      containers:
+        - name: redis_api
+          image: java_rest_api_to_redis:latest
+          ports:
+            - containerPort: 8080
