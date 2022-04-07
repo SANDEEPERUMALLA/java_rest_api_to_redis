@@ -3,5 +3,7 @@ services:
     image: java_rest_api_to_redis:latest
     ports:
       - 8080:8080
+    volumes:
+      - /tmp/logs:/opt/logs
   redis:
     image: redis

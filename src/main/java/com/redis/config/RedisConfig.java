@@ -1,16 +1,20 @@
 package com.redis.config;
 
+import com.redis.logging.Logger;
 import com.redis.services.RedisService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
-public class RedisConfig {
+@Configuration public class RedisConfig {
 
     @Bean
-    public RedisService redisService() {
-        String redisHost = System.getProperty("REDIS_HOST");
-        String redisPort = System.getProperty("REDIS_PORT");
-        return new RedisService(redisHost, redisPort);
+    public RedisService redisService(@Value("${redis.host}") String redisHost,
+            @Value("${redis.port}") String redisPort, Logger logger) {
+        return new RedisService(redisHost, redisPort, logger);
+    }
+
+    @Bean Logger logger(@Value("log.dir") String logDir) {
+        return new Logger(logDir);
     }
 }

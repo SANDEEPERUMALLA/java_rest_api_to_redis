@@ -1,1 +1,1 @@
-java 
+java -Dspring.profiles.active=local -jar target/java_rest_api_to_redis-1.0-SNAPSHOT.jar  
