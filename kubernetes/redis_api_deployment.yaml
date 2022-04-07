@@ -3,19 +3,20 @@ kind: Deployment
 metadata:
   name: redis-api-deployment
   labels:
-    app: redis_api
+    app: redis-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: redis_api
+      app: redis-api
   template:
     metadata:
       labels:
-        app: redis_api
+        app: redis-api
     spec:
       containers:
-        - name: redis_api
-          image: java_rest_api_to_redis:latest
+        - name: redis-api
+          image: java_rest_api_to_redis:kubernetes
+          imagePullPolicy: Never
           ports:
             - containerPort: 8080
