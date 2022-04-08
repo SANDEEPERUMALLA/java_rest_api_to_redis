@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: redis-api
-            image: redis_api:latest
-          imagePullPolicy: Never
+            image: sandeepkumarguptap/redis_api:latest
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
