@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: redis-api
-          image: java_rest_api_to_redis:kubernetes
+          image: redis_api:kubernetes
           imagePullPolicy: Never
           ports:
             - containerPort: 8080
@@ -53,7 +53,7 @@ spec:
       containers:
         - name: redis
           image: redis
-          imagePullPolicy: Never
+          imagePullPolicy: Always
           ports:
             - containerPort: 6379
 ---
