@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Sidecar
+metadata:
+  name: redis-api-sidecar
+spec:
+  workloadSelector:
+    labels:
+      app: redis-api
+  egress:
+    - bind: 0.0.0.0
+      hosts:
+        - '*/redis-service.default.svc.cluster.local'
+      port:
+        number: 6379
+        protocol: REDIS
+        name: redisport

@@ -10,6 +10,8 @@ public class RedisService {
 
     public RedisService(String redisHost, String redisPort, Logger logger) {
         try {
+            logger.log("Redis host: " + redisHost);
+            logger.log("Redis Port: " + redisPort);
             this.jedis = new Jedis(redisHost, Integer.parseInt(redisPort));
             this.logger = logger;
         } catch (Exception e) {

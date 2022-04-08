@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: redis-api
-          image: sandeepkumarguptap/redis_api:latest
+          image: sandeepkumarguptap/redis_api:v2
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
@@ -41,7 +41,7 @@ metadata:
   labels:
     app: redis
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: redis
